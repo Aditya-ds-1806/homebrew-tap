@@ -19,10 +19,6 @@ jobs:
           with:
             fetch-depth: 0
 
-        - name: Set upstream branch
-          run: |
-            git branch --set-upstream-to=origin/${{ github.ref_name }}
-
         - name: Set up Homebrew
           uses: Homebrew/actions/setup-homebrew@main
 
@@ -37,4 +33,4 @@ jobs:
             author_email: bot@goreleaser.com
             message: "chore(homebrew): auto-fix cask style"
             add: "Casks/*.rb"
-            push: true
+            push: origin ${{ github.ref_name }} --set-upstream --force
