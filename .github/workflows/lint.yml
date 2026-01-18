@@ -1,6 +1,7 @@
 name: Homebrew lint
 
 on:
+    workflow_dispatch:
     push:
         branches:
             - main
@@ -15,7 +16,7 @@ jobs:
 
     steps:
         - name: Checkout
-          uses: actions/checkout@v5
+          uses: actions/checkout@v6
           with:
             fetch-depth: 0
             persist-credentials: true
@@ -28,6 +29,12 @@ jobs:
         - name: Lint casks
           run: brew style --fix ./Casks
 
-        - uses: stefanzweifel/git-auto-commit-action@v7
+        - name: Commit and push changes (if any)
+          if: github.actor != 'goreleaserbot'
+          uses: EndBug/add-and-commit@v9
           with:
-            commit_message: "Fix linting issues in casks"
+            author_name: goreleaserbot
+            author_email: bot@goreleaser.com
+            message: "chore(homebrew): auto-fix cask style"
+            add: "Casks/*.rb"
+            push: origin HEAD:${{ github.ref_name }}
