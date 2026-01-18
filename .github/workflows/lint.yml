@@ -16,6 +16,12 @@ jobs:
     steps:
         - name: Checkout
           uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
+
+        - name: Set upstream branch
+          run: |
+            git branch --set-upstream-to=origin/${{ github.ref_name }}
 
         - name: Set up Homebrew
           uses: Homebrew/actions/setup-homebrew@main
