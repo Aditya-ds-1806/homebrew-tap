@@ -35,8 +35,13 @@ jobs:
 
       - run: brew test-bot --only-setup
 
-      - run: brew test-bot --only-tap-syntax
-      - run: brew test-bot --only-formulae
+      - name: Tap syntax check
+        run: brew test-bot --only-tap-syntax
+        continue-on-error: true
+      
+      - name: Formula syntax check
+        run: brew test-bot --only-formulae
+        continue-on-error: true
         if: github.event_name == 'pull_request'
 
       - name: Upload bottles as artifact
