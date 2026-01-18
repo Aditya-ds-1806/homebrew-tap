@@ -1,0 +1,34 @@
+name: Homebrew lint
+
+on:
+    push:
+        branches:
+            - main
+            - release/**
+
+jobs:
+  lint:
+    runs-on: macos-26
+
+    permissions:
+      contents: write
+
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+
+        - name: Set up Homebrew
+          uses: Homebrew/actions/setup-homebrew@main
+
+        - name: Lint casks
+          run: brew style --fix ./Casks
+
+        - name: Commit and push changes (if any)
+          if: github.actor != 'goreleaserbot'
+          uses: EndBug/add-and-commit@v9
+          with:
+            author_name: goreleaserbot
+            author_email: bot@goreleaser.com
+            message: "chore(homebrew): auto-fix cask style"
+            add: "Casks/*.rb"
+            push: true
