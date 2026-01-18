@@ -15,10 +15,11 @@ jobs:
 
     steps:
         - name: Checkout
-          uses: actions/checkout@v4
+          uses: actions/checkout@v5
           with:
             fetch-depth: 0
             persist-credentials: true
+            ref: ${{ github.head_ref }}
 
         - name: Set up Homebrew
           uses: Homebrew/actions/setup-homebrew@main
@@ -26,13 +27,6 @@ jobs:
         - name: Lint casks
           run: brew style --fix ./Casks
 
-        - name: Commit and push changes (if any)
-          if: github.actor != 'goreleaserbot'
-          uses: EndBug/add-and-commit@v9
+        - uses: stefanzweifel/git-auto-commit-action@v7
           with:
-            author_name: goreleaserbot
-            author_email: bot@goreleaser.com
-            message: "chore(homebrew): auto-fix cask style"
-            add: "Casks/*.rb"
-            push: origin HEAD:${{ github.ref_name }}
-            github_token: ${{ secrets.GITHUB_TOKEN }}
+            commit_message: "Fix linting issues in casks"
