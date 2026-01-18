@@ -35,3 +35,4 @@ jobs:
             message: "chore(homebrew): auto-fix cask style"
             add: "Casks/*.rb"
             push: origin HEAD:${{ github.ref_name }}
+            github_token: ${{ secrets.GITHUB_TOKEN }}
