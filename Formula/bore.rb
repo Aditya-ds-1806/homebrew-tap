@@ -9,7 +9,7 @@ class Bore < Formula
   depends_on "make" => :build
 
   def install
-    system "make", "build-client"
+    system "make", "build-client", "VERSION=v#{version}"
     bin.install "build/bore"
   end
 
