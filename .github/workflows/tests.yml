@@ -30,9 +30,17 @@ jobs:
           path: ${{ steps.set-up-homebrew.outputs.gems-path }}
           key: ${{ matrix.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
           restore-keys: ${{ matrix.os }}-rubygems-
-      
+     
       - name: Auto fix and commit formula issues
-        run: brew style --fix
+        run: brew style --fix ./Casks
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: Aditya-ds-1806
+          author_email: adithya18062000@gmail.com
+          message: 'Auto fix formula issues'
+          add: '*.rb'
 
       - run: brew test-bot --only-cleanup-before
 
