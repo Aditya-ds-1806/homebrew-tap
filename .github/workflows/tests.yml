@@ -30,6 +30,12 @@ jobs:
           path: ${{ steps.set-up-homebrew.outputs.gems-path }}
           key: ${{ matrix.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
           restore-keys: ${{ matrix.os }}-rubygems-
+      
+      - name: Auto fix and commit formula issues
+        run: brew style --fix
+
+      - name: Fix all automated formula corrections
+        run: brew test-bot --fix-auto-corrections
 
       - run: brew test-bot --only-cleanup-before
 
