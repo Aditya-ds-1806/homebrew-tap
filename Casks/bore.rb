@@ -15,12 +15,12 @@ cask "bore" do
     on_intel do
       url "https://github.com/aditya-ds-1806/bore/releases/download/v#{version}/bore_#{version}_darwin_amd64.tar.gz",
         verified: "github.com/aditya-ds-1806/bore/"
-      sha256 "6f568265e5ccc01f8e19195b67f06d1efb55963eab3830e45ff38b45558bb2bb"
+      sha256 "bfa351bb59271a0cc4aff0c06ac3b1a2cfe62c08a266233b1ccbf6c9839b5fa4"
     end
     on_arm do
       url "https://github.com/aditya-ds-1806/bore/releases/download/v#{version}/bore_#{version}_darwin_arm64.tar.gz",
         verified: "github.com/aditya-ds-1806/bore/"
-      sha256 "7a359c69df722b381663ff9761049989158211f107a51ae1e4ec3af44e90538a"
+      sha256 "9935e10a4ae4d68575fc61b79458423dc532f9a1392b3f79cec07875fe49a2a8"
     end
   end
 
@@ -28,12 +28,12 @@ cask "bore" do
     on_intel do
       url "https://github.com/aditya-ds-1806/bore/releases/download/v#{version}/bore_#{version}_linux_amd64.tar.gz",
         verified: "github.com/aditya-ds-1806/bore/"
-      sha256 "fa7f4800e224789f83cf8b1bf0267527709dd091d50fa32cdf73cdb35663b0fd"
+      sha256 "29fa60c7842c7dea6c745ca93bcb0447b11434344f9c9882f7b20d4e6e8aedc2"
     end
     on_arm do
       url "https://github.com/aditya-ds-1806/bore/releases/download/v#{version}/bore_#{version}_linux_arm64.tar.gz",
         verified: "github.com/aditya-ds-1806/bore/"
-      sha256 "9cc1610224415c970b3d0d9c435342038f0c7536c086cdf855cbb0b19895d734"
+      sha256 "e960e1a413a8be7267aa02a3f363fcdc7b3230d16a0c30c952f4853852f3e663"
     end
   end
 
