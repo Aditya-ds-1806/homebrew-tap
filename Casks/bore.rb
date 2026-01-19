@@ -3,7 +3,7 @@ cask "bore" do
   name "bore"
   desc "Blazing fast, free TCP tunnel that exposes your localhost to the world"
   homepage "https://trybore.com/"
-  version "0.1.5"
+  version "0.1.6"
 
   livecheck do
     skip "Auto-generated on release."
@@ -15,12 +15,12 @@ cask "bore" do
     on_intel do
       url "https://github.com/aditya-ds-1806/bore/releases/download/v#{version}/bore_#{version}_darwin_amd64.tar.gz",
         verified: "github.com/aditya-ds-1806/bore/"
-      sha256 "9c701e2d0cdbef712bea453fd7060c97efb4fdff1ee936a2af312d38c5063f97"
+      sha256 "67b85346e1e2280f1af16781d1b1c9fc6c135bd43267aee5f8e071d330777e3a"
     end
     on_arm do
       url "https://github.com/aditya-ds-1806/bore/releases/download/v#{version}/bore_#{version}_darwin_arm64.tar.gz",
         verified: "github.com/aditya-ds-1806/bore/"
-      sha256 "e175fbcae61d12fafdd77c7270106eae149cb42ad4ac581f35bb73af46eb33ef"
+      sha256 "23c522c75b0f11122ab32b96e8106e7f6f51d2838d860a8e0d4771978b547f32"
     end
   end
 
@@ -28,12 +28,12 @@ cask "bore" do
     on_intel do
       url "https://github.com/aditya-ds-1806/bore/releases/download/v#{version}/bore_#{version}_linux_amd64.tar.gz",
         verified: "github.com/aditya-ds-1806/bore/"
-      sha256 "f658ba961221f8872833e540042a012982a792ef918e395e0b8268ade9a4872f"
+      sha256 "145c141a45aa780db68fbbe83ff2fbc418dda6c4e3efffba4da5831fb93b63e9"
     end
     on_arm do
       url "https://github.com/aditya-ds-1806/bore/releases/download/v#{version}/bore_#{version}_linux_arm64.tar.gz",
         verified: "github.com/aditya-ds-1806/bore/"
-      sha256 "7992b8c12dfb0f8cf5ac7da4af81493d14426e1b32722bae4d24ae91b38f60ea"
+      sha256 "e92000499c111f02edea70f7041e1c1f3e5aacfec34542389da801d29f7077c8"
     end
   end
 
